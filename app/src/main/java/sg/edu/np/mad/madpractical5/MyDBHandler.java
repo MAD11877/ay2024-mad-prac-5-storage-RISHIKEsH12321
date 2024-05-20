@@ -45,9 +45,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public void addUser(User user) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, user.getUserName());
-        values.put(COLUMN_DESCRIPTION, user.getUserDescription());
-        values.put(COLUMN_DESCRIPTION, user.getUserDescription());
+        values.put(COLUMN_USERNAME, user.getName());
+        values.put(COLUMN_DESCRIPTION, user.getDescription());
         values.put(COLUMN_FOLLOWED, user.getFollowed());
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -99,8 +98,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, user.getID());
-        values.put(COLUMN_USERNAME, user.getUserName());
-        values.put(COLUMN_DESCRIPTION, user.getUserDescription());
+        values.put(COLUMN_USERNAME, user.getName());
+        values.put(COLUMN_DESCRIPTION, user.getDescription());
         values.put(COLUMN_FOLLOWED, user.getFollowed());
 
         db.update(TABLE_USERS, values, COLUMN_ID + " = ?", new String[]{String.valueOf(user.getID())});

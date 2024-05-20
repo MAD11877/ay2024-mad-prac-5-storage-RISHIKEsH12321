@@ -2,7 +2,6 @@ package sg.edu.np.mad.madpractical5;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +21,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     private static final String TAG = "UserAdapter";
 
-    public UserAdapter(ArrayList<User> input) {
+    public UserAdapter(ArrayList<User> input, ListActivity listActivity) {
         data = input;
     }
 
@@ -56,7 +55,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
         holder.smallImg.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
             builder.setTitle("Profile");
-            builder.setMessage(s.getUserName());
+            builder.setMessage(s.getName());
             builder.setCancelable(true);
 
             builder.setPositiveButton("View", (dialog, which) -> {

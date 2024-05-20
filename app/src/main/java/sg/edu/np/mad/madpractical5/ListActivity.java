@@ -56,7 +56,7 @@ Deletes all rows in table
 
         RecyclerView rcView = findViewById(R.id.rvView);
         UserAdapter mAdapter;
-        mAdapter = new UserAdapter(db.getUser());
+        mAdapter = new UserAdapter(db.getUser(),this);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
 

@@ -28,13 +28,13 @@ public class User {
     public void setUserName(String productname) {
         this.name = productname;
     }
-    public String getUserName() {
+    public String getName() {
         return this.name;
     }
     public void setUserDescription(String description) {
         this.description = description;
     }
-    public String getUserDescription() {
+    public String getDescription() {
         return this.description;
     }
     public void setFollowed(boolean followed) {
