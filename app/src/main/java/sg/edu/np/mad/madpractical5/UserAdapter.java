@@ -8,11 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +19,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     private static final String TAG = "UserAdapter";
 
-    public UserAdapter(ArrayList<User> input) {
+    public UserAdapter(ArrayList<User> input, ListActivity listActivity) {
         data = input;
     }
 
