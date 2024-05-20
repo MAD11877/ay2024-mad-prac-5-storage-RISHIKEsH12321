@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import java.util.ArrayList;
 
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,10 +22,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     private static final String TAG = "UserAdapter";
 
-    public UserAdapter(ArrayList<User> input, ListActivity listActivity) {
+    public UserAdapter(ArrayList<User> input) {
         data = input;
     }
 
+    @NonNull
     public UserViewHolder onCreateViewHolder(
             ViewGroup parent,
             int viewType) {
@@ -49,36 +53,24 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
         else{
             holder.bigImg.setVisibility(View.GONE);
         }
-        holder.smallImg.setOnClickListener(new View.OnClickListener(){
+        holder.smallImg.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+            builder.setTitle("Profile");
+            builder.setMessage(s.getUserName());
+            builder.setCancelable(true);
 
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                builder.setTitle("Profile");
-                builder.setMessage(s.getUserName());
-                builder.setCancelable(true);
+            builder.setPositiveButton("View", (dialog, which) -> {
+                Intent listActivity = new Intent(holder.smallImg.getContext(), MainActivity.class);
+                listActivity.putExtra("ID",s.getID());
+                startActivity(v.getContext(), listActivity, null);
+            });
 
-                builder.setPositiveButton("View", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent listActivity = new Intent(holder.smallImg.getContext(), MainActivity.class);
-                        listActivity.putExtra("ID",s.getID());
-                        startActivity(v.getContext(), listActivity, null);
-                        return;
-                    }
-                });
+            builder.setNegativeButton("Cancel", (dialog, which) -> {
+            });
 
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        return;
-                    }
-                });
+            AlertDialog alert = builder.create();
+            alert.show();
 
-                AlertDialog alert = builder.create();
-                alert.show();
-
-            }
         });
     }
 
