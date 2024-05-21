@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573284510013",
+    "project_id": "innate-algebra-421614",
+    "storage_bucket": "innate-algebra-421614.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573284510013:android:f0ef47aa903c66ad8a3d54",
+        "android_client_info": {
+          "package_name": "sg.edu.np.mad.madpractical5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYRGFLzBcQ4Ua3zkk9JWYoUIyyILGPDU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
