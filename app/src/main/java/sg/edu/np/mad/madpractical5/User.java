@@ -1,49 +1,22 @@
 package sg.edu.np.mad.madpractical5;
 
 public class User {
-    public String name;
-    public String description;
-    public int id;
-    public boolean followed;
-
-    public User(String n, String d, int i, boolean f){
-        this.name = n;
-        this.description = d;
-        this.id = i;
-        this.followed = f;
-    }
-
-    public User(String n, String d, boolean f){
-        this.name = n;
-        this.description = d;
-        this.followed = f;
-    }
-
-    public void setID(int id) {
+    private int id;
+    private String name;
+    private String description;
+    private boolean followed;
+    public void setID(int id){ this.id = id; }
+    public void setName(String username) { this.name = username; }
+    public void setDescription(String description) {this.description = description;}
+    public void setFollowed(boolean followed) { this.followed = followed; }
+    public int getID() { return id; }
+    public String getName() { return name; }
+    public String getDescription() {return description;}
+    public boolean getFollowed() { return followed; }
+    public User(String name, String description, int id, boolean followed){
         this.id = id;
-    }
-    public int getID() {
-        return this.id;
-    }
-    public void setUserName(String productname) {
-        this.name = productname;
-    }
-    public String getName() {
-        return this.name;
-    }
-    public void setUserDescription(String description) {
+        this.name = name;
         this.description = description;
-    }
-    public String getDescription() {
-        return this.description;
-    }
-    public void setFollowed(boolean followed) {
         this.followed = followed;
     }
-    public boolean getFollowed() {
-        return this.followed;
-    }
-
-
-
 }
